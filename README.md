@@ -4,8 +4,6 @@ The form includes validation for required fields, email format, radio button sel
 
 Live Demo https://todoapp757.netlify.app
 
-![Project Screenshot](./preview.jpg)
-
 ## Table of Contents
 
 - [Overview](#overview)
