@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belleza&family=Figtree:ital,wght@0,300..900;1,300..900&family=GFS+Didot&family=Inconsolata:wght@200..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Luxurious+Script&family=Outfit:wght@100..900&family=Parisienne&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script defer src="script.js"></script>
+    <title>Frontend Mentor | Contact form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+      body {
+        height: 100vh;
+        background: hsl(148, 38%, 91%);
+        font-family: "Belleza", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      .container {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 10rem 5rem;
+      }
+      .form {
+        background-color: hsl(0, 0%, 100%);
+        padding: 1.5rem 1.5rem;
+        border-radius: 11px;
+        position: relative;
+      }
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 900;
+        margin-bottom: 1.8rem;
+      }
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.4rem;
+      }
+      .form-div {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      fieldset {
+        border: none;
+        padding: 0;
+        margin: 0 0 1.5rem 0;
+      }
+
+      .radio-options {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .radio-box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.6rem 1.7rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: border-color 0.2s ease;
+      }
+      .submit-btn {
+        width: 100%;
+        display: inline-block;
+        background-color: hsl(169, 82%, 27%);
+        font-size: 0.9rem;
+        color: hsl(13, 31%, 94%);
+        font-weight: 500;
+        border: none;
+        padding: 1rem 4.5rem;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 3rem;
+      }
+      .submit-btn:hover {
+        background-color: #37b24d;
+        border: 1px solid hsl(186, 15%, 59%);
+      }
+      .radio-box:hover,
+      .radio-box:has(input:checked) {
+        border-color: hsl(148, 38%, 43%);
+        background-color: hsl(148, 38%, 95%);
+      }
+
+      .radio-box input[type="radio"] {
+        accent-color: hsl(148, 38%, 43%);
+      }
+
+      input[type="text"] {
+        padding: 0.6rem 1.7rem;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: hsl(187, 24%, 22%);
+      }
+      input[type="text"]:focus {
+        outline: 1px solid hsl(148, 38%, 60%);
+      }
+      input[type="text"]:hover {
+        border-color: hsl(148, 38%, 60%);
+      }
+      input[type="email"]:hover {
+        border-color: hsl(148, 38%, 60%);
+      }
+      .messager {
+        padding: 0.6rem 1.5rem;
+      }
+      input[type="email"] {
+        padding-top: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        color: hsl(187, 24%, 22%);
+      }
+      input[type="email"]:focus {
+        outline: 1px solid hsl(148, 38%, 60%);
+      }
+      label {
+        font-size: 1rem;
+        margin-bottom: 0.7rem;
+        color: hsl(187, 24%, 22%);
+      }
+      .message-input {
+        padding: 1.4rem 1.5rem;
+        font-size: 1.2rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        resize: vertical; /* user can stretch it vertically */
+        font-family: inherit;
+        color: hsl(187, 24%, 22%);
+        /* min-height: 8rem; */
+      }
+      .message-input:focus {
+        border-color: hsl(148, 38%, 60%);
+        box-shadow: 0 0 0 2px hsl(148, 38%, 80%);
+        outline: none;
+      }
+      .message-input:hover {
+        border-color: hsl(148, 38%, 60%);
+      }
+      /* Hide the default checkbox */
+      .checkbox-group input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 1.6rem;
+        height: 1.6rem;
+        border: 1.5px solid hsl(187, 24%, 22%);
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        margin-right: 0.8rem;
+        margin-top: 0;
+      }
+
+      /* Add the custom checkmark image when checked */
+      .checkbox-group input[type="checkbox"]:checked {
+        background-image: url("assets/images/icon-checkbox-check.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1.6rem;
+        /* background-color: hsl(187, 24%, 22%); */
+      }
+
+      /* Make sure the label and input align nicely */
+      .checkbox-group {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.4rem;
+        margin-top: 1.4rem;
+      }
+      .checkbox-row {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .error-msg {
+        color: hsl(7, 100%, 60%);
+        font-size: 1.2rem;
+        margin: 0.5rem 0 0 0;
+      }
+
+      .success-msg {
+        position: absolute;
+        top: 5%;
+        right: 41%;
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        background-color: hsl(187, 24%, 22%);
+        color: #fff;
+        padding: 1.2rem 1.7rem;
+        border-radius: 9px;
+      }
+      .success-icon {
+        width: 1.9rem;
+        height: 1.9rem;
+        margin-top: 0.5rem;
+      }
+      .centers {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .mess {
+        font-size: 1.2rem;
+        margin-top: 0.6rem;
+        color: #fff;
+        margin-bottom: 1.3rem;
+      }
+    </style>
+    <link href="queries.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="success"></div>
+    <div class="container">
+      <form class="form" novalidate>
+        <h2>Contact Us</h2>
+        <div class="form-div">
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname" name="firstname" required />
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" name="lastname" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <fieldset class="radio-group">
+            <legend>Query Type</legend>
+            <div class="radio-options">
+              <label class="radio-box">
+                <input type="radio" name="query" value="fixed" required />
+                General Enquiry
+              </label>
+              <label class="radio-box">
+                <input type="radio" name="query" value="variable" required />
+                Support Request
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="message-input"
+            required
+          ></textarea>
+        </div>
+        <div class="checkbox-group">
+          <div class="checkbox-row">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent"
+              >I hereby consent to being contacted by the team</label
+            >
+          </div>
+        </div>
+        <button class="submit-btn">Submit</button>
+      </form>
+    </div>
+
+
+  </body>
+</html>
